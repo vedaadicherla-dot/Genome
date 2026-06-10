@@ -65,23 +65,54 @@ Data handling
 - If you add example data, keep it under `data/sample/` with descriptive
   filenames and a short README in that directory describing the format.
 
-Contributing
+ABSTRACT
 
-- Work on feature branches, add tests or example outputs where appropriate,
-Notebook layout recommendations
+This document describes a compact, reproducible Jupyter notebook-based
+workflow for preprocessing and exploratory analysis of genomic summary data.
+The notebook focuses on data hygiene, QC, and visualization that help
+prepare datasets for downstream analyses like variant interpretation or
+statistical modeling.
 
-- `00_config`  — configuration cells that set paths, parameters, and seeds
-- `01_load`    — data import and initial schema checks
-- `02_preproc` — cleaning and transformation steps
-- `03_qc`      — quality-control metrics and diagnostic plots
-- `04_visual`  — main visualizations and figure export
-- `05_results` — save and summarize cleaned outputs
+PROBLEM STATEMENT
 
-Contact
+Genomic analysis teams frequently encounter heterogeneous data formats,
+missing metadata, and inconsistent quality metrics that slow down analysis
+and reduce reproducibility. This repository provides a documented, minimal
+pipeline that standardizes common preprocessing tasks and demonstrates best
+practices for reproducible notebook-based workflows.
 
-For collaboration or questions: vedaadicherla@gmail.com
-  and open a pull request for review. Keep changes small and focused.
+FEATURES
 
-Contact
+- Configuration-driven notebook for easy adaptation to new datasets.
+- Data validation and schema checks to catch format issues early.
+- QC summaries and plots to identify low-quality samples or outliers.
+- Simple export of cleaned tables and figures for reporting.
 
-For collaboration or questions, contact: vedaadicherla@gmail.com
+DATA SOURCES AND FORMATS
+
+- Expected input types: CSV/TSV; examples show typical column names used in
+  variant summary data.
+- Large binary formats (BAM/VCF) are referenced externally; the repo does
+  not include large files.
+
+EXPECTED OUTPUTS
+
+- Cleaned sample tables (CSV) saved locally by the notebook.
+- Visualizations written to a `figures/` folder.
+- Notebook cell documenting the exact commands and parameters used.
+
+EXTENDING THE PROJECT
+
+- Extract repeatable processing code into a `src/` Python package.
+- Add `requirements.txt` or `environment.yml` to make environments
+  reproducible.
+- Consider integrating with workflow tools for larger pipelines.
+
+ACKNOWLEDGEMENTS
+
+This repository is intended as a personal or small-team starting point. If
+you reuse or extend it, add contributors and cite any third-party datasets
+or libraries you rely on.
+
+
+

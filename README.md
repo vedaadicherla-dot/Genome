@@ -185,3 +185,73 @@ to be reused under an open license.
 ## Contact
 
 For questions or collaboration, contact: vedaadicherla@gmail.com
+
+## Abstract
+
+This repository provides a reproducible Jupyter-based analysis notebook for
+investigating and preprocessing genomic summary data. The notebook bundles a
+small, documented pipeline that focuses on data validation, quality control,
+lightweight normalization, and visualization to support downstream analyses
+such as variant interpretation or comparative summaries.
+
+## Problem Statement
+
+Genomic datasets often arrive as large, heterogeneous files with varying
+formats, missing metadata, and inconsistent quality metrics. These issues
+create friction for analysts who need to perform reproducible exploratory
+analysis and prepare data for downstream workflows (e.g., variant calling,
+association tests, or machine-learning pipelines). This project addresses the
+need for a concise, well-documented starting point that demonstrates common
+preprocessing steps, quality-control heuristics, and visualization patterns
+that reduce time-to-insight while preserving reproducibility.
+
+## Key Features
+
+- Example-driven notebook documenting a reproducible preprocessing workflow.
+- Configuration cell for easy path and parameter updates without editing
+	analysis code.
+- Data validation checks: schema verification, missing-value summaries, and
+	range checks.
+- Quality-control routines: summary statistics, threshold-based filtering,
+	and diagnostic plots.
+- Export capability for cleaned sample tables and figures for reporting.
+- Minimal dependency footprint to keep the repository lightweight.
+
+## Data Sources and Formats
+
+- Expected input: tabular files (CSV/TSV) or small sample files that include
+	identifiers and numeric quality metrics. Example columns: `sample_id`,
+	`chromosome`, `position`, `ref`, `alt`, `coverage`, `quality`.
+- For larger genomic formats (BAM/VCF), the notebook provides examples of
+	how to reference external files without committing them to the repository.
+
+## Expected Outputs
+
+- Cleaned, analysis-ready CSVs saved in a `results/` or `data/processed/`
+	folder (not committed for large data).
+- Figures exported to a `figures/` folder when `savefig()` is invoked.
+- Logged preprocessing parameters and a short summary report inside the
+	notebook describing the applied filters.
+
+## How to Extend
+
+- Move reusable code into a `src/` module when you need to share logic
+	across multiple notebooks or scripts.
+- Add automated checks or unit tests for data loader functions when
+	transforming input into canonical schemas.
+- For heavier workflows, consider migrating to a workflow manager (e.g.,
+	Snakemake or Nextflow) and keep the notebook as an exploratory/visual
+	artifact.
+
+## Roadmap
+
+- Add `requirements.txt` or `environment.yml` to lock dependencies.
+- Provide small sample data under `data/sample/` and a `data/README` that
+	explains file formats.
+- Create a lightweight CLI or python module for common preprocessing steps
+	to increase reproducibility and enable batch runs.
+
+## Citation
+
+If you use this repository in research, please cite the repository and list
+any specific packages or datasets used in the analysis.
